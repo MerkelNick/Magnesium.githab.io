@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Сложение матриц</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Helpy_2.jpg">
+</head>
+<body>
+  <div class="horizontal_menu">
+    <ul class="menu-main">
+      <li><a href="index.html">Главная</a></li>
+      <li class="dropdown">
+        <a href="">Массивы ▼</a>
+        <ul class="submenu">
+          <li><a href="array1d.html" class="current">Одномерный</a></li>
+          <li><a href="array2d.html">Двумерный</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="">матрицы ▼</a>
+        <ul class="submenu">
+          <li><a href="matrix_multiply.html">Умножение</a></li>
+          <li><a href="matrix_add.html">Сложение</a></li>
+          <li><a href="matrix_transpose.html">Транспонирование</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2>Сложение матриц</h2>
+    <label>Размер: <input type="number" id="rows" value="3" min="1" max="5">×<input type="number" id="cols" value="3" min="1" max="5"></label>
+    <button onclick="generateMatrices()">Создать</button>
+
+    <div class="matrix-container" style="display:flex;gap:30px;flex-wrap:wrap;">
+      <div id="matrixA"></div>
+      <div id="matrixB"></div>
+    </div>
+
+    <button onclick="add()">Сложить</button>
+    <div id="output" class="result"></div>
+  </div>
+
+  <script>
+    function generateMatrices() {
+      const r = +rows.value, c = +cols.value;
+      let htmlA = "<h4>Матрица A</h4><table>";
+      let htmlB = "<h4>Матрица B</h4><table>";
+      for (let i = 0; i < r; i++) {
+        htmlA += "<tr>"; htmlB += "<tr>";
+        for (let j = 0; j < c; j++) {
+          htmlA += `<td><input type='number' id='A${i}_${j}' value='0'></td>`;
+          htmlB += `<td><input type='number' id='B${i}_${j}' value='0'></td>`;
+        }
+        htmlA += "</tr>"; htmlB += "</tr>";
+      }
+      htmlA += "</table>"; htmlB += "</table>";
+      matrixA.innerHTML = htmlA;
+      matrixB.innerHTML = htmlB;
+      output.innerHTML = "";
+    }
+
+    function add() {
+      const r = +rows.value, c = +cols.value;
+      let html = "<h4>Результат (A + B)</h4><table>";
+      for (let i = 0; i < r; i++) {
+        html += "<tr>";
+        for (let j = 0; j < c; j++) {
+          const sum = +document.getElementById(`A${i}_${j}`).value + +document.getElementById(`B${i}_${j}`).value;
+          html += `<td>${sum}</td>`;
+        }
+        html += "</tr>";
+      }
+      html += "</table>";
+      output.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Одномерный массив</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Helpy_2.jpg">
+</head>
+<body>
+  <div class="horizontal_menu">
+    <ul class="menu-main">
+      <li><a href="index.html">Главная</a></li>
+      <li class="dropdown">
+        <a href="">Массивы ▼</a>
+        <ul class="submenu">
+          <li><a href="array1d.html" class="current">Одномерный</a></li>
+          <li><a href="array2d.html">Двумерный</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="">матрицы ▼</a>
+        <ul class="submenu">
+          <li><a href="matrix_multiply.html">Умножение</a></li>
+          <li><a href="matrix_add.html">Сложение</a></li>
+          <li><a href="matrix_transpose.html">Транспонирование</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2>Одномерный массив</h2>
+    <label>Размер массива: <input type="number" id="size" value="5"></label>
+    <button onclick="createArray()">Создать</button>
+    <div id="inputs"></div>
+    <button onclick="showArray()">Показать</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    function createArray() {
+      const n = +size.value;
+      let html = "<table><tr>";
+      for (let i = 0; i < n; i++) html += `<td><input type='number' id='a${i}' value='0'></td>`;
+      html += "</tr></table>";
+      inputs.innerHTML = html;
+      result.innerHTML = "";
+    }
+    function showArray() {
+      const n = +size.value;
+      const arr = [];
+      for (let i = 0; i < n; i++) arr.push(+document.getElementById(`a${i}`).value);
+      result.textContent = "Массив: " + arr.join(", ");
+    }
+  </script>
+</body>
+</html>

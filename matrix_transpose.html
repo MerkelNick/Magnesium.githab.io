@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Транспонирование матрицы</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="icon" href="Helpy_2.jpg">
+</head>
+<body>
+  <div class="horizontal_menu">
+    <ul class="menu-main">
+      <li><a href="index.html">Главная</a></li>
+      <li class="dropdown">
+        <a href="">Массивы ▼</a>
+        <ul class="submenu">
+          <li><a href="array1d.html" class="current">Одномерный</a></li>
+          <li><a href="array2d.html">Двумерный</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="">матрицы ▼</a>
+        <ul class="submenu">
+          <li><a href="matrix_multiply.html">Умножение</a></li>
+          <li><a href="matrix_add.html">Сложение</a></li>
+          <li><a href="matrix_transpose.html">Транспонирование</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2>Транспонирование матрицы</h2>
+    <label>Размер: <input type="number" id="rows" value="3" min="1" max="5">×<input type="number" id="cols" value="3" min="1" max="5"></label>
+    <button onclick="generateMatrix()">Создать</button>
+
+    <div id="matrix"></div>
+    <button onclick="transpose()">Транспонировать</button>
+    <div id="output" class="result"></div>
+  </div>
+
+  <script>
+    function generateMatrix() {
+      const r = +rows.value, c = +cols.value;
+      let html = "<table>";
+      for (let i = 0; i < r; i++) {
+        html += "<tr>";
+        for (let j = 0; j < c; j++) html += `<td><input type='number' id='m${i}_${j}' value='0'></td>`;
+        html += "</tr>";
+      }
+      html += "</table>";
+      matrix.innerHTML = html;
+    }
+
+    function transpose() {
+      const r = +rows.value, c = +cols.value;
+      let html = "<h4>Транспонированная матрица</h4><table>";
+      for (let j = 0; j < c; j++) {
+        html += "<tr>";
+        for (let i = 0; i < r; i++) html += `<td>${+document.getElementById(`m${i}_${j}`).value}</td>`;
+        html += "</tr>";
+      }
+      html += "</table>";
+      output.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

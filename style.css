@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Roboto:400,500&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f3f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Верхнее меню === */
+.menu-main {
+  list-style: none;
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.menu-main li {
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+}
+.menu-main a {
+  text-decoration: none;
+  font-family: 'Ubuntu Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #555;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 5px;
+}
+.menu-main a:hover,
+.menu-main a.current {
+  color: #ff8c42;
+  border-bottom: 3px solid #ff8c42;
+}
+
+/* === Подменю === */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  list-style: none;
+  min-width: 220px;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  animation: slideDown 0.3s ease;
+}
+
+.submenu li {
+  display: block;
+  margin: 0;
+}
+
+.submenu li a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.submenu li a:hover {
+  background: #ff8c42;
+  color: #fff;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* === Контент === */
+.block {
+  text-align: center;
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 30px auto;
+  width: 85%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.block h2 {
+  color: #222;
+  text-align: center;
+  border-bottom: 2px solid #ff8c42;
+  padding-bottom: 5px;
+}
+
+.block table {
+  margin: 10px auto;
+}
+
+/* Таблицы и формы */
+input[type="number"] {
+  width: 60px;
+  padding: 3px;
+  text-align: center;
+  border-radius: 8px;
+}
+table {
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+td, th {
+  padding: 5px 8px;
+  text-align: center;
+}
+.result {
+  text-align: center;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.05);
+}
+button {
+  background: #ff8c42;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background: #e5782b;
+}
+
+img {
+  max-height: 240px;
+  display: block;
+  margin: 0 auto;
+}
